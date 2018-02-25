@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Ola's Blog</title>
-</head>
-<body>
-	<h1>Django Studies Blog</h1>
-	
+{% extends 'blog/base.html' %}
+
+{% block content %}
 	{% for post in posts %}
-		<div>
-			<h2>{{post.title}}</h2>
+		<div class="post">
+			<h2><a href="">{{post.title}}</a></h2>
 			<h4>Published by: <i>{{post.author}}</i></h4>
 			<p>
 				{{post.text|linebreaksbr}}
 			</p>
-			<p><strong>Published in {{post.published_date}}</strong></p>
+			<p class="date"><strong>Published in {{post.published_date}}</strong></p>
 		</div>
 	{% endfor %}
-</body>
-</html>
+{% endblock %}
